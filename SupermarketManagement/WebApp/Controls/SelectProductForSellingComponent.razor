@@ -1,0 +1,95 @@
+﻿@using UseCases.UseCaseInterfaces;
+
+@inject IViewCategoriesUseCase ViewCategoriesUseCase
+@inject IViewProductsByCategoryId ViewProductsByCategoryId;
+
+
+
+
+<div class="form-group">
+	<label for="category">Category</label>
+	<select id="category" @bind="SelectedCategoryId" class="form-control">
+		<option value="0" selected></option>
+		@foreach (var cat in categories)
+		{
+			<option value="@cat.CategoryId">@cat.Name</option>
+		}
+	</select>
+</div>
+<br/>
+
+@if(productsInCategory != null)
+{
+	<table class="table">
+	<thead>
+		<tr>
+			<th>Product Name</th>
+			<th>Quantity Left</th>
+		</tr>
+	</thead>
+	<tbody>
+		
+		@foreach(var prod in productsInCategory)
+		{
+			<tr @onclick="@(() => OnClickSelectProduct(prod))"
+			style="@(prod.ProductId == selectedProductId? "background-color:dodgerblue;cursor:pointer;":"cursor:pointer")">
+				<td>
+					@prod.Name
+				</td>
+				<td>
+					@prod.Quantity
+				</td>
+			</tr>
+		}
+		
+		
+	</tbody>
+</table>
+}
+
+@code {
+
+	private IEnumerable<Product> productsInCategory;
+	private int selectedProductId;
+
+	[Parameter]
+	public EventCallback<Product> OnProductSelected { get; set; }
+
+	private int selectedCategoryId;
+	private int SelectedCategoryId
+	{
+		get
+		{
+			return selectedCategoryId;
+		}
+		set
+		{
+			selectedCategoryId = value;
+			productsInCategory = ViewProductsByCategoryId.Execute(value);
+			OnClickSelectProduct(null);
+			StateHasChanged();
+		}
+
+	}
+
+	private IEnumerable<Category> categories;
+
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+
+		productsInCategory = Enumerable.Empty<Product>();
+		categories = ViewCategoriesUseCase.Execute();
+
+	}
+
+	private void OnClickSelectProduct(Product product)
+	{
+		OnProductSelected.InvokeAsync(product);
+		if(product != null) selectedProductId = product.ProductId;
+		
+	}
+}
+
+
+

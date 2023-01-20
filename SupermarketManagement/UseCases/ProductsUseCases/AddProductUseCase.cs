@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using UseCases.PluginInterfaces;
 using UseCases.UseCaseInterfaces;
 
-namespace UseCases
+namespace UseCases.ProductsUseCases
 {
     public class AddProductUseCase : IAddProductUseCase
     {

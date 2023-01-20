@@ -9,17 +9,17 @@ using UseCases.UseCaseInterfaces;
 
 namespace UseCases
 {
-    public class ViewProductsUseCase : IViewProductsUseCase
+    public class ViewProductsByCategoryId : IViewProductsByCategoryId
 	{
 		private readonly IProductRepository productRepository;
 
-		public ViewProductsUseCase(IProductRepository productRepository)
+		public ViewProductsByCategoryId(IProductRepository productRepository)
 		{
 			this.productRepository = productRepository;
 		}
-		public IEnumerable<Product> Execute()
+		public IEnumerable<Product> Execute(int categoryId)
 		{
-			return productRepository.GetProducts();
+			return productRepository.GetProductsByCategoryId(categoryId);
 		}
 	}
 }

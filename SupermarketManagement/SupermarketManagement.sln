@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{45B067B9-BD8A-4717-8E46-DBE2E6131A26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "WebApp\WebApp.csproj", "{45B067B9-BD8A-4717-8E46-DBE2E6131A26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCases", "UseCases\UseCases.csproj", "{B266BC9F-E1C6-4B8D-B401-476ECDCBD75D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseCases", "UseCases\UseCases.csproj", "{B266BC9F-E1C6-4B8D-B401-476ECDCBD75D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreBusiness", "CoreBusiness\CoreBusiness.csproj", "{1F2871E5-C2A3-4E60-878B-50F8D6B7E51E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreBusiness", "CoreBusiness\CoreBusiness.csproj", "{1F2871E5-C2A3-4E60-878B-50F8D6B7E51E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugins.DataStore.InMemory", "Plugins.DataStore.InMemory\Plugins.DataStore.InMemory.csproj", "{9B2B0872-F4DE-46E4-A5FE-3D9BB71B1F3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugins.DataStore.InMemory", "Plugins.DataStore.InMemory\Plugins.DataStore.InMemory.csproj", "{9B2B0872-F4DE-46E4-A5FE-3D9BB71B1F3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugins.DataStore.SQL", "Plugins.DataStore.SQL\Plugins.DataStore.SQL.csproj", "{0EF99574-85AB-4605-B557-4DB11BB54FC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9B2B0872-F4DE-46E4-A5FE-3D9BB71B1F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B2B0872-F4DE-46E4-A5FE-3D9BB71B1F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B2B0872-F4DE-46E4-A5FE-3D9BB71B1F3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EF99574-85AB-4605-B557-4DB11BB54FC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EF99574-85AB-4605-B557-4DB11BB54FC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EF99574-85AB-4605-B557-4DB11BB54FC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EF99574-85AB-4605-B557-4DB11BB54FC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
