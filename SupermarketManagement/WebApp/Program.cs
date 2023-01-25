@@ -9,6 +9,8 @@ using UseCases.PluginInterfaces;
 using UseCases.ProductsUseCases;
 using UseCases.UseCaseInterfaces;
 using WebApp.Data;
+using Microsoft.AspNetCore.Identity;
+using UseCases.Transactions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +25,15 @@ builder.Services.AddDbContext<MarketContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 }
  );
+
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+//    .AddEntityFrameworkStores<AccountContext>();
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", p => p.RequireClaim("Position", "Admin"));
+    options.AddPolicy("CashierOnly", p => p.RequireClaim("Position", "Cashier"));
+});
 
 //Add Dependency Injection for inMemory Repository
 //builder.Services.AddScoped<ICategoryInMemoryRepository, CategoryInMemoryRepository>();
@@ -69,7 +80,14 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapRazorPages();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
 app.Run();
+
+
+

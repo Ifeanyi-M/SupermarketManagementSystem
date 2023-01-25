@@ -1,5 +1,5 @@
 ﻿@page "/products"
-
+@attribute [Authorize(Policy = "AdminOnly")]
 @using UseCases.UseCaseInterfaces;
 
 @inject NavigationManager navigationManager

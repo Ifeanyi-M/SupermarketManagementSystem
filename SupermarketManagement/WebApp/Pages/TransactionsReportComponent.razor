@@ -1,4 +1,5 @@
 ﻿@page "/transaction"
+@attribute [Authorize(Policy = "AdminOnly")]
 @using UseCases.UseCaseInterfaces;
 
 @inject IJSRuntime JSRuntime
